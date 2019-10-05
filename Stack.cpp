@@ -1,58 +1,46 @@
 #include<iostream>
 using namespace std;
-#define max_index 10
+#define stack_max 100
 
 typedef struct
 {
     int top;
-    int arr[max_index];
-}St;
+    int data[stack_max];
+}Stack;
 
-void push(St *s,int item)
+void push(Stack *s,int item)
 {
-    if(s->top < max_index)
+    if(s->top < stack_max)
     {
-        s->arr[s->top] = item;
-        s->top = s->top + 1;
+        s->data[s->top] = item;
+        s->top++;
     }
     else
-        cout<<"Stack is full."<<endl;
-
+        cout<<"Stack is full"<<endl;
 }
-int pop(St *s)
+int pop(Stack *s)
 {
-    int item;
     if(s->top == 0)
     {
-        cout<<"Stack is empty."<<endl;
+        cout<<"Stack is empty"<<endl;
         return -1;
     }
     else
     {
         s->top--;
-        return s->arr[s->top];
+        return s->data[s->top];
     }
-
 }
 
 int main()
 {
-    St ob,ob2;
-    ob.top = 0;
-    ob2.top = 0;
+    Stack st;
+    st.top = 0;
 
-    push(&ob,10);
-    push(&ob,20);
-    push(&ob,30);
+    push(&st,1);
+    //push(&st,2);
 
-    cout<<pop(&ob)<<endl;
-    cout<<pop(&ob)<<endl;
-    cout<<pop(&ob)<<endl;
-
-    push(&ob2,200);
-    push(&ob2,300);
-    cout<<pop(&ob2)<<endl;
-    cout<<pop(&ob2)<<endl;
-
+    cout<<pop(&st)<<endl;
+    cout<<pop(&st)<<endl;
     return 0;
 }
