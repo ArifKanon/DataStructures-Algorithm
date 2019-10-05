@@ -38,7 +38,7 @@ int main()
     st.top = 0;
 
     push(&st,1);
-    //push(&st,2);
+    push(&st,2);
 
     cout<<pop(&st)<<endl;
     cout<<pop(&st)<<endl;
